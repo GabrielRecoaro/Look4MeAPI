@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+using Look4MeAPI.Models;
+
 namespace Look4MeAPI.Controllers
 {
     public class SobrenomeController : ApiController
