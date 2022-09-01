@@ -13,7 +13,14 @@ namespace Look4MeAPI.Controllers
     public class SobrenomeController : ApiController
     {
         List<Sobrenome> sobrenomes = new List<Sobrenome>(new Sobrenome[] { new Sobrenome(1, "Jard", "França", "Estados Unidos", "Alemanha", "357 Pessoas com o sobrenome Jard na Árvore Familiar compartilhada."),
-                                                            new Sobrenome(2, "Sousa", "Brasil", "Portugal", "Estados Unidos", "458.473 Pessoas com o sobrenome Sousa na Árvore Familiar compartilhada."),});
+                                                            new Sobrenome(2, "Sousa", "Brasil", "Portugal", "Estados Unidos", "458.473 Pessoas com o sobrenome Sousa na Árvore Familiar compartilhada."),
+            new Sobrenome(3, "Sousa", "Brasil", "Portugal", "Estados Unidos", "458.473 Pessoas com o sobrenome Sousa na Árvore Familiar compartilhada."),
+            new Sobrenome(4, "Sousa", "Brasil", "Portugal", "Estados Unidos", "458.473 Pessoas com o sobrenome Sousa na Árvore Familiar compartilhada."),
+            new Sobrenome(5, "Sousa", "Brasil", "Portugal", "Estados Unidos", "458.473 Pessoas com o sobrenome Sousa na Árvore Familiar compartilhada."),
+            new Sobrenome(6, "Sousa", "Brasil", "Portugal", "Estados Unidos", "458.473 Pessoas com o sobrenome Sousa na Árvore Familiar compartilhada."),
+            new Sobrenome(7, "Sousa", "Brasil", "Portugal", "Estados Unidos", "458.473 Pessoas com o sobrenome Sousa na Árvore Familiar compartilhada."),
+            new Sobrenome(8, "Sousa", "Brasil", "Portugal", "Estados Unidos", "458.473 Pessoas com o sobrenome Sousa na Árvore Familiar compartilhada."),
+            new Sobrenome(9, "Sousa", "Brasil", "Portugal", "Estados Unidos", "458.473 Pessoas com o sobrenome Sousa na Árvore Familiar compartilhada."),});
 
 
 
@@ -32,7 +39,7 @@ namespace Look4MeAPI.Controllers
             if (sobrenome == null)
             {
                 var resp = new HttpResponseMessage(HttpStatusCode.NotFound);
-               throw new HttpResponseException(resp);
+               throw new HttpResponseException( resp);
             }
             return sobrenome;
         }
