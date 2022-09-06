@@ -28,5 +28,7 @@ namespace Look4MeAPI.Models
         public string Pais3 { get; set; }
         public string Arvore { get; set; }
 
+
+
     }
 }
