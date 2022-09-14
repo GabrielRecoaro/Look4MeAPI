@@ -23,7 +23,7 @@ namespace Look4MeAPI.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Sobrenome/getSobrenome/5
+        //// GET: api/Sobrenome/getSobrenome/2
         [HttpGet]
         [ActionName("getSobrenome")]
         public Sobrenome Get(int idsobrenome)

@@ -52,7 +52,7 @@ namespace Look4MeAPI.Controllers
   
                 while (reader.Read())
                 {
-                    l.Add(new Sobrenome(int.Parse(reader["IDSobrenome"].ToString()), reader["Nome"].ToString(), reader["Pais1"].ToString(), reader["Pais2"].ToString(), reader["Pais3"].ToString(), reader["Arvore"].ToString()));
+                    l.Add(new Sobrenome(int.Parse(reader["IDsobrenome"].ToString()), reader["Nome"].ToString(), reader["Pais1"].ToString(), reader["Pais2"].ToString(), reader["Pais3"].ToString(), reader["Arvore"].ToString()));
 
                 }
             }
