@@ -20,9 +20,9 @@ namespace Look4MeAPI.Controllers
 
         static string password = "12345678";
 
-        public static string strProvider = "server=" + host +
-                                            ";Database=" + database +
-                                            ";User ID=" + userDB +
+        public static string strProvider =  "server=" + host +
+                                            ";Database=" + database + 
+                                            ";User ID=" + userDB + 
                                             ";Password=" + password;
 
         public static Boolean novo = false;
@@ -36,7 +36,8 @@ namespace Look4MeAPI.Controllers
             conn2.Open();
 
         }
-        public List<Sobrenome> BuscaTodos()
+
+        public List<Sobrenome> BuscaTodosSm()
         {
 
             MySqlDataReader reader;
@@ -53,6 +54,31 @@ namespace Look4MeAPI.Controllers
                 while (reader.Read())
                 {
                     l.Add(new Sobrenome(int.Parse(reader["IDsobrenome"].ToString()), reader["Nome"].ToString(), reader["Pais1"].ToString(), reader["Pais2"].ToString(), reader["Pais3"].ToString(), reader["Arvore"].ToString()));
+
+                }
+            }
+            return l;
+
+        }
+
+
+        public List<Nome> BuscaTodosNm()
+        {
+
+            MySqlDataReader reader;
+
+            sql = "SELECT * FROM tbNome;";
+            MySqlCommand cmd = new MySqlCommand(sql, conn2);
+
+            reader = cmd.ExecuteReader();
+            List<Nome> l = new List<Nome>();
+
+            if (reader.HasRows)
+            {
+
+                while (reader.Read())
+                {
+                    l.Add(new Nome(int.Parse(reader["IdNome"].ToString()), reader["Nome"].ToString(), reader["PaisNm"].ToString(), reader["MsgNm"].ToString()));
 
                 }
             }

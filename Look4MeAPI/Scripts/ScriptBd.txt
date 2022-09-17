@@ -1,0 +1,97 @@
+drop database if exists dbLook4Me;
+create database if not exists dbLook4Me;
+use dbLook4Me;
+
+
+
+create table if not exists tbNome(
+IdNome int auto_increment primary key,
+Nome varchar(100),
+PaisNm varchar(50),
+MsgNm varchar(100)
+);
+
+create table if not exists tbSobrenome(
+IdSobrenome int auto_increment primary key,
+Sobrenome varchar(100),
+PaisSm varchar(50),
+MsgSm varchar(100)
+);
+
+
+
+Delimiter $$
+create procedure InsertNome
+(pNome varchar(100), pPaisNm varchar(50), pMsgNm varchar(100))
+begin
+insert into tbNome (Nome, PaisNm, MsgNm)
+values (pNome, pPaisNm, pMsgNm); 
+end;$$
+
+Delimiter $$
+create procedure InsertSobrenome
+(pSobrenome varchar(100), pPaisSm varchar(50), pMsgSm varchar(100))
+begin
+insert into tbSobrenome (Sobrenome, PaisSm, MsgSm)
+values(pSobrenome, pPaisSm, pMsgSm);
+end;$$
+
+
+
+call InsertNome('Arthur', 'Estados Unidos', 'O 664° nome mais comum do mundo.');
+call InsertNome('Brenda', 'Estados Unidos', 'O 310° nome mais comum do mundo.');
+call InsertNome('Bruno', 'Brasil', 'O 277° nome mais comum do mundo.');
+call InsertNome('Carlos', 'Brasil', 'O 264° nome mais comum do mundo.');
+call InsertNome('Diego', 'Brasil', 'O 461° nome mais comum do mundo.');
+call InsertNome('Enrico', 'Itália', 'O 3.076° nome mais comum do mundo.');
+call InsertNome('Filipe', 'Moçambique', 'O 3.240° nome mais comum do mundo.');
+call InsertNome('Gabriel', 'Brasil', 'O 144° nome mais comum do mundo.');
+call InsertNome('Guilherme', 'Brasil', 'O 1.569° nome mais comum do mundo.');
+call InsertNome('Gustavo', 'Brasi', 'O 389° nome mais comum do mundo.');
+call InsertNome('Henrique', 'Brasil', 'O 2.905° nome mais comum do mundo.');
+call InsertNome('João', 'Angola', 'O 1.441° nome mais comum do mundo.');
+call InsertNome('Kaio', 'Brasil', 'O 17.819° nome mais comum do mundo.');
+call InsertNome('Larissa', 'Brasil', 'O 2.290° nome mais comum do mundo.');
+call InsertNome('Leandro', 'Brasil', 'O 3.401° nome mais comum do mundo.');
+call InsertNome('Levi', 'Brasil', 'O 6.121° nome mais comum do mundo.');
+call InsertNome('Leticia', 'México', 'O 645° nome mais comum do mundo.');
+call InsertNome('Lucas', 'Brasil', 'O 391° nome mais comum do mundo.');
+call InsertNome('Luiz', 'Brasil', 'O 349th° nome mais comum do mundo.');
+call InsertNome('Maria', 'Brasil', 'O 14° nome mais comum do mundo.');
+call InsertNome('Mateus', 'Brasil', 'O 2.376° nome mais comum do mundo.');
+call InsertNome('Matheus', 'Brasil', 'O 1.683° nome mais comum do mundo.');
+call InsertNome('Otavio', 'Brasil', 'O 8.786° nome mais comum do mundo.');
+call InsertNome('Pedro', 'Brasil', 'O 62° nome mais comum do mundo.');
+call InsertNome('Rodrigo', 'Brasil', 'O 504° nome mais comum do mundo.');
+call InsertNome('Thiago', 'Brasil', 'O 2.017° nome mais comum do mundo.');
+call InsertNome('Wesley', 'Brasil', 'O 2.289° nome mais comum do mundo.');
+
+
+
+call InsertSobrenome('Jard', 'França', '357 Pessoas com o sobrenome Jard na Árvore Familiar compartilhada.');
+call InsertSobrenome('Sousa', 'Brasil', '458,473 Pessoas com o sobrenome Sousa na Árvore Familiar compartilhada.');
+call InsertSobrenome('Soares', 'Brasil', '146,826 Pessoas com o sobrenome Soares na Árvore Familiar compartilhada.');
+call InsertSobrenome('Da Silva', 'Brasil', '386,899 Pessoas com o sobrenome da Silva na Árvore Familiar compartilhada.');
+call InsertSobrenome('Souza', 'Brasil', '458,473 Pessoas com o sobrenome Souza na Árvore Familiar compartilhada.');
+call InsertSobrenome('Ribeiro', 'Brasil', '204,533 Pessoas com o sobrenome Ribeiro na Árvore Familiar compartilhada.');
+call InsertSobrenome('Miranda', 'México', '354,077 Pessoas com o sobrenome Miranda na Árvore Familiar compartilhada.');
+call InsertSobrenome('Pereira', 'Brasil', '548,930 Pessoas com o sobrenome Pereira na Árvore Familiar compartilhada.');
+call InsertSobrenome('Pessoa', 'Brasil', '15,010 Pessoas com o sobrenome Pessoa na Árvore Familiar compartilhada.');
+call InsertSobrenome('Ferreira', 'Brasil', '470,233 Pessoas com o sobrenome Ferreira na Árvore Familiar compartilhada.');
+call InsertSobrenome('Freire', 'Brasil', '36,863 Pessoas com o sobrenome Freire na Árvore Familiar compartilhada.');
+call InsertSobrenome('Lima', 'Brasil', '313,669 Pessoas com o sobrenome Lima na Árvore Familiar compartilhada.');
+call InsertSobrenome('Boaventura', 'Brasil', '2,062 Pessoas com o sobrenome Boaventura na Árvore Familiar compartilhada.');
+call InsertSobrenome('Galvao', 'Brasil', '4,570 Pessoas com o sobrenome Galvao na Árvore Familiar compartilhada.');
+call InsertSobrenome('Barreto', 'Brasil', '65,623 Pessoas com o sobrenome Barreto na Árvore Familiar compartilhada.');
+call InsertSobrenome('Basilio', 'México', '6,775 Pessoas com o sobrenome Basilio na Árvore Familiar compartilhada.');
+call InsertSobrenome('Jesus', 'Brasil', '849,030 Pessoas com o sobrenome Jesus na Árvore Familiar compartilhada.');
+call InsertSobrenome('Gomes', 'Brasil', '713,714 Pessoas com o sobrenome Gomes na Árvore Familiar compartilhada.');
+call InsertSobrenome('Almeida', 'Brasil', '219,371 Pessoas com o sobrenome Almeida na Árvore Familiar compartilhada.');
+call InsertSobrenome('Bastos', 'Brasil', '28,586 Pessoas com o sobrenome Pessoa na Árvore Familiar compartilhada.');
+call InsertSobrenome('Sanches', 'México', '738,133 Pessoas com o sobrenome Sanches na Árvore Familiar compartilhada.');
+call InsertSobrenome('Resina', 'Espanha', '331 Pessoas com o sobrenome Resina na Árvore Familiar compartilhada.');  
+
+
+
+select * from tbNome;
+select * from tbSobrenome;
