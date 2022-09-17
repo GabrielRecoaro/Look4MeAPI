@@ -1,5 +1,3 @@
-# Look4MeAPI
-NOMES DA DUPLA: GABRIEL JARD, GUSTAVO DE SOUSA.
-\\
-\\
-Projeto da criação da API para o app Look4Me no Visual Studio.
+<h1>API LOOK4ME</h1>  
+<p>Nomes da dupla: Gabriel Jard e Gustavo de Sousa</p>  
+<p>Repositório com o projeto da Api do app Look4Me feita no Visual Studio</p>
