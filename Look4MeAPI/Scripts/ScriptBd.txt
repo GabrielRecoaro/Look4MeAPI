@@ -296,6 +296,75 @@ call InsertPais('Suazilândia', 'África', 'Dlamini');
 
 
 
+DELIMITER $$
+CREATE PROCEDURE spGetPaisByPais(
+	in $pais varchar(50)
+)
+BEGIN
+	SELECT * FROM tbpais WHERE Pais = (SELECT Pais FROM tbpais WHERE Pais = $pais);
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE spGetPaisByContinente(
+	in $continente varchar(50)
+)
+BEGIN
+	SELECT * FROM tbpais WHERE Continente = $continente;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE spGetAllPaises(
+
+)
+BEGIN
+	SELECT * FROM tbpais;
+END $$
+
+
+
+DELIMITER $$
+CREATE PROCEDURE spGetSobrenomeBySobrenome(
+	in $sobrenome varchar(50)
+)
+BEGIN
+	SELECT * FROM tbsobrenome WHERE Sobrenome = (SELECT Sobrenome FROM tbsobrenome WHERE Sobrenome = $Sobrenome);
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE spGetAllSobrenomes(
+
+)
+BEGIN
+	SELECT * FROM tbsobrenome;
+END $$
+
+
+
+DELIMITER $$
+CREATE PROCEDURE spGetNomeByNome(
+	in $nome varchar(50)
+)
+BEGIN
+	SELECT * FROM tbnome WHERE Nome = (SELECT Nome FROM tbnome WHERE Nome = $nome);
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE spGetAllNomes(
+
+)
+BEGIN
+	SELECT * FROM tbnome;
+END $$
+
+
+
 select * from tbNome;
 select * from tbSobrenome;
 select * from tbPais;
+call spGetPaisByPais("Lichtenstein");
+call spGetPaisByContinente("Ásia");
+call spGetSobrenomeBySobrenome("Sousa");
+call spGetNomeByNome("João");
+call spGetAllPaises;
+call spGetAllSobrenomes;
+call spGetAllNomes;

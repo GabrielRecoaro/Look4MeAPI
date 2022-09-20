@@ -10,18 +10,18 @@ using Look4MeAPI.Models;
 
 namespace Look4MeAPI.Controllers
 {
-    public class NomeController : ApiController
+    public class SobrenomeController : ApiController
     {
         [HttpGet]
         [ActionName("DefaultApi")]
-        public Nome GetSpecified(string nome)
+        public Sobrenome GetSpecified(string sobrenome)
         {
-            return new Nome().getNomeByNome(nome);
+            return new Sobrenome().getSobrenomeBySobrenome(sobrenome);
         }
 
         public string Get()
         {
-            return new Nome().getAllNomes();
+            return new Sobrenome().getAllSobrenomes();
 
         }
     }
