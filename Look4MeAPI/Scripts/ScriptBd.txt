@@ -1,4 +1,4 @@
-drop database if exists dbLook4Me;
+﻿drop database if exists dbLook4Me;
 create database if not exists dbLook4Me;
 use dbLook4Me;
 
@@ -16,6 +16,13 @@ IdSobrenome int auto_increment primary key,
 Sobrenome varchar(100),
 PaisSm varchar(50),
 MsgSm varchar(100)
+);
+
+create table if not exists tbPais(
+IdPais int auto_increment primary key,
+Pais varchar(50),
+Continente varchar(50),
+SmComum varchar(100)
 );
 
 
@@ -36,62 +43,259 @@ insert into tbSobrenome (Sobrenome, PaisSm, MsgSm)
 values(pSobrenome, pPaisSm, pMsgSm);
 end;$$
 
-
-
-call InsertNome('Arthur', 'Estados Unidos', 'O 664� nome mais comum do mundo.');
-call InsertNome('Brenda', 'Estados Unidos', 'O 310� nome mais comum do mundo.');
-call InsertNome('Bruno', 'Brasil', 'O 277� nome mais comum do mundo.');
-call InsertNome('Carlos', 'Brasil', 'O 264� nome mais comum do mundo.');
-call InsertNome('Diego', 'Brasil', 'O 461� nome mais comum do mundo.');
-call InsertNome('Enrico', 'It�lia', 'O 3.076� nome mais comum do mundo.');
-call InsertNome('Filipe', 'Mo�ambique', 'O 3.240� nome mais comum do mundo.');
-call InsertNome('Gabriel', 'Brasil', 'O 144� nome mais comum do mundo.');
-call InsertNome('Guilherme', 'Brasil', 'O 1.569� nome mais comum do mundo.');
-call InsertNome('Gustavo', 'Brasi', 'O 389� nome mais comum do mundo.');
-call InsertNome('Henrique', 'Brasil', 'O 2.905� nome mais comum do mundo.');
-call InsertNome('Jo�o', 'Angola', 'O 1.441� nome mais comum do mundo.');
-call InsertNome('Kaio', 'Brasil', 'O 17.819� nome mais comum do mundo.');
-call InsertNome('Larissa', 'Brasil', 'O 2.290� nome mais comum do mundo.');
-call InsertNome('Leandro', 'Brasil', 'O 3.401� nome mais comum do mundo.');
-call InsertNome('Levi', 'Brasil', 'O 6.121� nome mais comum do mundo.');
-call InsertNome('Leticia', 'M�xico', 'O 645� nome mais comum do mundo.');
-call InsertNome('Lucas', 'Brasil', 'O 391� nome mais comum do mundo.');
-call InsertNome('Luiz', 'Brasil', 'O 349th� nome mais comum do mundo.');
-call InsertNome('Maria', 'Brasil', 'O 14� nome mais comum do mundo.');
-call InsertNome('Mateus', 'Brasil', 'O 2.376� nome mais comum do mundo.');
-call InsertNome('Matheus', 'Brasil', 'O 1.683� nome mais comum do mundo.');
-call InsertNome('Otavio', 'Brasil', 'O 8.786� nome mais comum do mundo.');
-call InsertNome('Pedro', 'Brasil', 'O 62� nome mais comum do mundo.');
-call InsertNome('Rodrigo', 'Brasil', 'O 504� nome mais comum do mundo.');
-call InsertNome('Thiago', 'Brasil', 'O 2.017� nome mais comum do mundo.');
-call InsertNome('Wesley', 'Brasil', 'O 2.289� nome mais comum do mundo.');
+Delimiter $$
+create procedure InsertPais
+(pPais varchar(500), pContinente varchar(50), pSmComum varchar(100))
+begin
+insert into tbPais (Pais, Continente, SmComum)
+values (pPais, pContinente, pSmComum); 
+end;$$
 
 
 
-call InsertSobrenome('Jard', 'Fran�a', '357 Pessoas com o sobrenome Jard na �rvore Familiar compartilhada.');
-call InsertSobrenome('Sousa', 'Brasil', '458,473 Pessoas com o sobrenome Sousa na �rvore Familiar compartilhada.');
-call InsertSobrenome('Soares', 'Brasil', '146,826 Pessoas com o sobrenome Soares na �rvore Familiar compartilhada.');
-call InsertSobrenome('Da Silva', 'Brasil', '386,899 Pessoas com o sobrenome da Silva na �rvore Familiar compartilhada.');
-call InsertSobrenome('Souza', 'Brasil', '458,473 Pessoas com o sobrenome Souza na �rvore Familiar compartilhada.');
-call InsertSobrenome('Ribeiro', 'Brasil', '204,533 Pessoas com o sobrenome Ribeiro na �rvore Familiar compartilhada.');
-call InsertSobrenome('Miranda', 'M�xico', '354,077 Pessoas com o sobrenome Miranda na �rvore Familiar compartilhada.');
-call InsertSobrenome('Pereira', 'Brasil', '548,930 Pessoas com o sobrenome Pereira na �rvore Familiar compartilhada.');
-call InsertSobrenome('Pessoa', 'Brasil', '15,010 Pessoas com o sobrenome Pessoa na �rvore Familiar compartilhada.');
-call InsertSobrenome('Ferreira', 'Brasil', '470,233 Pessoas com o sobrenome Ferreira na �rvore Familiar compartilhada.');
-call InsertSobrenome('Freire', 'Brasil', '36,863 Pessoas com o sobrenome Freire na �rvore Familiar compartilhada.');
-call InsertSobrenome('Lima', 'Brasil', '313,669 Pessoas com o sobrenome Lima na �rvore Familiar compartilhada.');
-call InsertSobrenome('Boaventura', 'Brasil', '2,062 Pessoas com o sobrenome Boaventura na �rvore Familiar compartilhada.');
-call InsertSobrenome('Galvao', 'Brasil', '4,570 Pessoas com o sobrenome Galvao na �rvore Familiar compartilhada.');
-call InsertSobrenome('Barreto', 'Brasil', '65,623 Pessoas com o sobrenome Barreto na �rvore Familiar compartilhada.');
-call InsertSobrenome('Basilio', 'M�xico', '6,775 Pessoas com o sobrenome Basilio na �rvore Familiar compartilhada.');
-call InsertSobrenome('Jesus', 'Brasil', '849,030 Pessoas com o sobrenome Jesus na �rvore Familiar compartilhada.');
-call InsertSobrenome('Gomes', 'Brasil', '713,714 Pessoas com o sobrenome Gomes na �rvore Familiar compartilhada.');
-call InsertSobrenome('Almeida', 'Brasil', '219,371 Pessoas com o sobrenome Almeida na �rvore Familiar compartilhada.');
-call InsertSobrenome('Bastos', 'Brasil', '28,586 Pessoas com o sobrenome Pessoa na �rvore Familiar compartilhada.');
-call InsertSobrenome('Sanches', 'M�xico', '738,133 Pessoas com o sobrenome Sanches na �rvore Familiar compartilhada.');
-call InsertSobrenome('Resina', 'Espanha', '331 Pessoas com o sobrenome Resina na �rvore Familiar compartilhada.');��
+call InsertNome('Arthur', 'Estados Unidos', 'O 664° nome mais comum do mundo.');
+call InsertNome('Brenda', 'Estados Unidos', 'O 310° nome mais comum do mundo.');
+call InsertNome('Bruno', 'Brasil', 'O 277° nome mais comum do mundo.');
+call InsertNome('Carlos', 'Brasil', 'O 264° nome mais comum do mundo.');
+call InsertNome('Diego', 'Brasil', 'O 461° nome mais comum do mundo.');
+call InsertNome('Enrico', 'Itália', 'O 3.076° nome mais comum do mundo.');
+call InsertNome('Filipe', 'Moçambique', 'O 3.240° nome mais comum do mundo.');
+call InsertNome('Gabriel', 'Brasil', 'O 144° nome mais comum do mundo.');
+call InsertNome('Guilherme', 'Brasil', 'O 1.569° nome mais comum do mundo.');
+call InsertNome('Gustavo', 'Brasi', 'O 389° nome mais comum do mundo.');
+call InsertNome('Henrique', 'Brasil', 'O 2.905° nome mais comum do mundo.');
+call InsertNome('João', 'Angola', 'O 1.441° nome mais comum do mundo.');
+call InsertNome('Kaio', 'Brasil', 'O 17.819° nome mais comum do mundo.');
+call InsertNome('Larissa', 'Brasil', 'O 2.290° nome mais comum do mundo.');
+call InsertNome('Leandro', 'Brasil', 'O 3.401° nome mais comum do mundo.');
+call InsertNome('Levi', 'Brasil', 'O 6.121° nome mais comum do mundo.');
+call InsertNome('Leticia', 'México', 'O 645° nome mais comum do mundo.');
+call InsertNome('Lucas', 'Brasil', 'O 391° nome mais comum do mundo.');
+call InsertNome('Luiz', 'Brasil', 'O 349th° nome mais comum do mundo.');
+call InsertNome('Maria', 'Brasil', 'O 14° nome mais comum do mundo.');
+call InsertNome('Mateus', 'Brasil', 'O 2.376° nome mais comum do mundo.');
+call InsertNome('Matheus', 'Brasil', 'O 1.683° nome mais comum do mundo.');
+call InsertNome('Otavio', 'Brasil', 'O 8.786° nome mais comum do mundo.');
+call InsertNome('Pedro', 'Brasil', 'O 62° nome mais comum do mundo.');
+call InsertNome('Rodrigo', 'Brasil', 'O 504° nome mais comum do mundo.');
+call InsertNome('Thiago', 'Brasil', 'O 2.017° nome mais comum do mundo.');
+call InsertNome('Wesley', 'Brasil', 'O 2.289° nome mais comum do mundo.');
+
+
+
+call InsertSobrenome('Jard', 'França', '357 Pessoas com o sobrenome Jard na Árvore Familiar compartilhada.');
+call InsertSobrenome('Sousa', 'Brasil', '458,473 Pessoas com o sobrenome Sousa na Árvore Familiar compartilhada.');
+call InsertSobrenome('Soares', 'Brasil', '146,826 Pessoas com o sobrenome Soares na Árvore Familiar compartilhada.');
+call InsertSobrenome('Da Silva', 'Brasil', '386,899 Pessoas com o sobrenome da Silva na Árvore Familiar compartilhada.');
+call InsertSobrenome('Souza', 'Brasil', '458,473 Pessoas com o sobrenome Souza na Árvore Familiar compartilhada.');
+call InsertSobrenome('Ribeiro', 'Brasil', '204,533 Pessoas com o sobrenome Ribeiro na Árvore Familiar compartilhada.');
+call InsertSobrenome('Miranda', 'México', '354,077 Pessoas com o sobrenome Miranda na Árvore Familiar compartilhada.');
+call InsertSobrenome('Pereira', 'Brasil', '548,930 Pessoas com o sobrenome Pereira na Árvore Familiar compartilhada.');
+call InsertSobrenome('Pessoa', 'Brasil', '15,010 Pessoas com o sobrenome Pessoa na Árvore Familiar compartilhada.');
+call InsertSobrenome('Ferreira', 'Brasil', '470,233 Pessoas com o sobrenome Ferreira na Árvore Familiar compartilhada.');
+call InsertSobrenome('Freire', 'Brasil', '36,863 Pessoas com o sobrenome Freire na Árvore Familiar compartilhada.');
+call InsertSobrenome('Lima', 'Brasil', '313,669 Pessoas com o sobrenome Lima na Árvore Familiar compartilhada.');
+call InsertSobrenome('Boaventura', 'Brasil', '2,062 Pessoas com o sobrenome Boaventura na Árvore Familiar compartilhada.');
+call InsertSobrenome('Galvao', 'Brasil', '4,570 Pessoas com o sobrenome Galvao na Árvore Familiar compartilhada.');
+call InsertSobrenome('Barreto', 'Brasil', '65,623 Pessoas com o sobrenome Barreto na Árvore Familiar compartilhada.');
+call InsertSobrenome('Basilio', 'México', '6,775 Pessoas com o sobrenome Basilio na Árvore Familiar compartilhada.');
+call InsertSobrenome('Jesus', 'Brasil', '849,030 Pessoas com o sobrenome Jesus na Árvore Familiar compartilhada.');
+call InsertSobrenome('Gomes', 'Brasil', '713,714 Pessoas com o sobrenome Gomes na Árvore Familiar compartilhada.');
+call InsertSobrenome('Almeida', 'Brasil', '219,371 Pessoas com o sobrenome Almeida na Árvore Familiar compartilhada.');
+call InsertSobrenome('Bastos', 'Brasil', '28,586 Pessoas com o sobrenome Pessoa na Árvore Familiar compartilhada.');
+call InsertSobrenome('Sanches', 'México', '738,133 Pessoas com o sobrenome Sanches na Árvore Familiar compartilhada.');
+call InsertSobrenome('Resina', 'Espanha', '331 Pessoas com o sobrenome Resina na Árvore Familiar compartilhada.');  
+
+
+
+call InsertPais('Canadá', 'América do Norte','Smith');
+call InsertPais('Estados Unidos', 'América do Norte','Smith');
+call InsertPais('México', 'América do Norte','Hernandez');
+call InsertPais('Guatemala', 'América Central','Lopez');
+call InsertPais('El Salvador', 'América Central','Hernandez');
+call InsertPais('Costa Rica', 'América Central','Rodriguez');
+call InsertPais('Belize', 'América Central','Martinez');
+call InsertPais('Cuba', 'América Central','Rodriguez');
+call InsertPais('Panamá', 'América Central','Rodriguez');
+call InsertPais('República Dominicana', 'América Central','Rodriguez');
+call InsertPais('Honduras', 'América Central','Hernandez');
+call InsertPais('Nicarágua', 'América Central','Lopez');
+call InsertPais('Jamaica', 'América Central','Brown');
+call InsertPais('Brasil', 'América do Sul', 'Da Silva');
+call InsertPais('Paraguai', 'América do Sul', 'Gonzalez');
+call InsertPais('Bolivia', 'América do Sul', 'Mamani');
+call InsertPais('Suriname', 'América do Sul', 'Lin');
+call InsertPais('Uruguai', 'América do Sul', 'Rodriguez');
+call InsertPais('Argentina', 'América do Sul', 'Gonzalez');
+call InsertPais('Chile', 'América do Sul', 'Gonzalez');
+call InsertPais('Peru', 'América do Sul', 'Quispe');
+call InsertPais('Equador', 'América do Sul', 'Garia');
+call InsertPais('Colombia', 'América do Sul', 'Rodriguez');
+call InsertPais('Venezuela', 'América do Sul', 'Gonzalez');
+call InsertPais('Guiana', 'América do Sul', 'Persaud');
+call InsertPais('Austrália', 'Oceania', 'Smith');
+call InsertPais('Nova Zelânida', 'Oceania', 'Smith');
+call InsertPais('Fiji', 'Oceania', 'Kumar');
+call InsertPais('Ilhas Marshall', 'Oceania', 'John');
+call InsertPais('Ilhas Salomão', 'Oceania', 'Mae');
+call InsertPais('Micronésia', 'Oceania', 'Mori');
+call InsertPais('Palau', 'Oceania', 'Tellei');
+call InsertPais('Papua-Nova Guiné', 'Oceania', 'John');
+call InsertPais('Vanuatu', 'Oceania', 'Tari');
+call InsertPais('Nauru', 'Oceania', 'Harris');
+call InsertPais('Kiribati', 'Oceania', 'Ioane');
+call InsertPais('Samoa', 'Oceania', 'Meredith');
+call InsertPais('Tuvalu', 'Oeania', 'Apinelu');
+call InsertPais('Tonga', 'Oceania', 'Latu');
+call InsertPais('Islândia', 'Europa', 'Jónsdóttir');
+call InsertPais('Noruega', 'Europa', 'Hansen');
+call InsertPais('Finlândia', 'Europa', 'Korhonen');
+call InsertPais('Estônia', 'Europa', 'Tamm');
+call InsertPais('Lituânia', 'Europa', 'Kaslauskas');
+call InsertPais('Bielorússia', 'Europa', 'Ivanov');
+call InsertPais('Suécia', 'Europa', 'Andersson');
+call InsertPais('Dinamarca', 'Europa', 'Jensen');
+call InsertPais('Irlanda', 'Europa', 'Murphy');
+call InsertPais('Reino Unido', 'Europa', 'Smith');
+call InsertPais('Holanda', 'Europa', 'De Jong');
+call InsertPais('Alemanha', 'Europa', 'Müller');
+call InsertPais('Polônia', 'Europa', 'Nowak');
+call InsertPais('Ucrânia', 'Europa', 'Melnik');
+call InsertPais('Bélgica', 'Europa', 'Peeters');
+call InsertPais('Tchéquia', 'Europa', 'Nováková');
+call InsertPais('Luxemburgo', 'Europa', 'Schmit');
+call InsertPais('Eslováquia', 'Europa', 'Varga');
+call InsertPais('Moldávia', 'Europa', 'Rusu');
+call InsertPais('Arménia', 'Europa', 'Gregoryan');
+call InsertPais('França', 'Europa', 'Martin');
+call InsertPais('Áustria', 'Europa', 'Gruber');
+call InsertPais('Hungria', 'Europa', 'Nagy');
+call InsertPais('Romênia', 'Europa', 'Popa');
+call InsertPais('Suiça', 'Europa', 'Müller');
+call InsertPais('Eslovênia', 'Europa', 'Novak');
+call InsertPais('Croácia', 'Europa', 'Horvat');
+call InsertPais('Itália', 'Europa', 'Rossi');
+call InsertPais('Bósnia e Herzegovina', 'Europa', 'Hodžić');
+call InsertPais('Sérvia', 'Europa', 'Jovanović');
+call InsertPais('Kosovo', 'Europa', 'Krasniqi');
+call InsertPais('Bulgária', 'Europa', 'Ivanov');
+call InsertPais('Portugal', 'Europa', 'Silva');
+call InsertPais('Espanha', 'Europa', 'Garcia');
+call InsertPais('Andorra', 'Europa', 'Garcia');
+call InsertPais('Mônaco', 'Europa', 'Rossi');
+call InsertPais('Vaticano', 'Europa', 'Bachmann');
+call InsertPais('Montenegro', 'Europa', 'Popović');
+call InsertPais('Albânia', 'Europa', 'Hoxha');
+call InsertPais('Macedônia', 'Europa', 'Stojanovsk');
+call InsertPais('Turquia', 'Europa', 'Yilmaz');
+call InsertPais('San Marino', 'Europa', 'Gasperoni');
+call InsertPais('Malta', 'Europa', 'Borg');
+call InsertPais('Grécia', 'Europa', 'Papalopoulos');
+call InsertPais('Chipre', 'Europa', 'Georgiou');
+call InsertPais('Lichtenstein', 'Europa', 'Büchel');
+call InsertPais('Rússia', 'Ásia', 'Ivanova');
+call InsertPais('Cazaquistão', 'Ásia', 'Kim');
+call InsertPais('Georgia', 'Ásia', 'Beridze');
+call InsertPais('Arzebaijão', 'Ásia', 'Mammadova');
+call InsertPais('Mongólia', 'Ásia', 'Ganbold');
+call InsertPais('Uzbequistão', 'Ásia', 'Kim');
+call InsertPais('Síria', 'Ásia', 'Khaled');
+call InsertPais('Turcomenistão', 'Ásia', 'Mamedova');
+call InsertPais('Quirguistão', 'Ásia', 'Ismailova');
+call InsertPais('Tajiquistão', 'Ásia', 'Sharipov');
+call InsertPais('China', 'Ásia', 'Wang');
+call InsertPais('Coréia do Norte', 'Ásia', 'Kim');
+call InsertPais('Japão', 'Ásia', 'Satô');
+call InsertPais('Líbano', 'Ásia', 'El Din');
+call InsertPais('Iraque', 'Ásia', 'Mohamed');
+call InsertPais('Afeganistão', 'Ásia', 'Muhammadi');
+call InsertPais('Nepal', 'Ásia', 'Caudhari');
+call InsertPais('Butão', 'Ásia', 'Dorji');
+call InsertPais('Irã', 'Ásia', 'Muhammadi');
+call InsertPais('Coréia d Sul', 'Ásia', 'Kim');
+call InsertPais('Palestina', 'Ásia', 'Awad');
+call InsertPais('Jordânia', 'Ásia', 'Allah');
+call InsertPais('Kuwait', 'Ásia', 'Ali');
+call InsertPais('Barein', 'Ásia', 'Ali');
+call InsertPais('Paquistão', 'Ásia', 'Khan');
+call InsertPais('Israel', 'Ásia', 'Cohen');
+call InsertPais('Catar', 'Ásia', 'Khan');
+call InsertPais('India', 'Ásia', 'Devi');
+call InsertPais('Lagos', 'Ásia', 'Inthavong');
+call InsertPais('Taiwan', 'Ásia', 'Chen');
+call InsertPais('Arábia Saudita', 'Ásia', 'Khan');
+call InsertPais('Emirados Árabes Unidos', 'Ásia', 'Ali');
+call InsertPais('Omã', 'Ásia', 'Al Balushi');
+call InsertPais('Bangladesh', 'Ásia', 'Akter');
+call InsertPais('Vietnã', 'Ásia', 'Nguyen');
+call InsertPais('Iêmen', 'Ásia', 'Mohamed');
+call InsertPais('Myanmar', 'Ásia', 'Maung');
+call InsertPais('Cambodja', 'Ásia', 'Sok');
+call InsertPais('Tailândia', 'Ásia', 'Saetang');
+call InsertPais('Brunei', 'Ásia', 'Haji');
+call InsertPais('Filipinas', 'Ásia', 'Dela Cruz');
+call InsertPais('Maldivas', 'Ásia', 'Mohamed');
+call InsertPais('Sri Lanka', 'Ásia', 'Perera');
+call InsertPais('Malásia', 'Ásia', 'Tan');
+call InsertPais('Singapura', 'Ásia', 'Tan');
+call InsertPais('Indonésia', 'Ásia', 'Sari');
+call InsertPais('Timor-Leste', 'Ásia', 'Soares');
+call InsertPais('Marrocos', 'África', 'Alaoui');
+call InsertPais('Argélia', 'África', 'Saidi');
+call InsertPais('Tunisia', 'África', 'Trabelsi');
+call InsertPais('Líbia', 'África', 'Ali');
+call InsertPais('Egito', 'África', 'Mohamed');
+call InsertPais('Cabo Verde', 'África', 'Lopes');
+call InsertPais('Mauritânia', 'África', 'Ba');
+call InsertPais('Mali', 'África', 'Traore');
+call InsertPais('Níger', 'África', 'Abdou');
+call InsertPais('Chade', 'África', 'Mahamat');
+call InsertPais('Sudão', 'África', 'Ahmed');
+call InsertPais('Eritreia', 'África', 'Ali');
+call InsertPais('Djibouti', 'África', 'Mohamed');
+call InsertPais('Senegal', 'África', 'Ndiaye');
+call InsertPais('Gâmbia', 'África', 'Jallow');
+call InsertPais('Guiné-Bissau', 'África', 'Gomes');
+call InsertPais('Guiné', 'África', 'Diallo');
+call InsertPais('Serra Leoa', 'África', 'Kamara');
+call InsertPais('Libéria', 'África', 'Kollie');
+call InsertPais('Costa do Marfim', 'África', 'Kone');
+call InsertPais('Burkina Faso', 'África', 'Quedraogo');
+call InsertPais('Gana', 'África', 'Mensah');
+call InsertPais('Togo', 'África', 'Lawson');
+call InsertPais('Benin', 'África', 'Bio');
+call InsertPais('Nigéria', 'África', 'Ibrahim');
+call InsertPais('Camarões', 'África', 'Ngo');
+call InsertPais('República Centro-Africana', 'África', 'Moussa');
+call InsertPais('Sudão do Sul', 'África', 'Deng');
+call InsertPais('Etiópia', 'África', 'Tesfaye');
+call InsertPais('Somália', 'África', 'Ali');
+call InsertPais('Guiné Equatorial', 'África', 'Nguema');
+call InsertPais('Congo', 'África', 'Ilunga');
+call InsertPais('Uganda', 'África', 'Akello');
+call InsertPais('Quênia', 'África', 'Mwangi');
+call InsertPais('São Tomé e Príncipe', 'África', 'Fernandes');
+call InsertPais('Gabão', 'África', 'Ndong');
+call InsertPais('Ruanda', 'África', 'Uwimana');
+call InsertPais('Burundi', 'África', 'Nkurunziza');
+call InsertPais('Tanzânia', 'África', 'Juma');
+call InsertPais('Comores', 'África', 'Mohamed');
+call InsertPais('Seychelles', 'África', 'Hoareaou');
+call InsertPais('Angola', 'África', 'Manuel');
+call InsertPais('Zâmbia', 'África', 'Phiri');
+call InsertPais('Malawi', 'África', 'Banda');
+call InsertPais('Namíbia', 'África', 'Johannes');
+call InsertPais('Botsuana', 'África', 'Molefe');
+call InsertPais('Zimbábue', 'África', 'Moyo');
+call InsertPais('Moçambique', 'África', 'Langa');
+call InsertPais('Ilhas Maurício', 'África', 'Beehary');
+call InsertPais('África do Sul', 'África', 'Nkosi');
+call InsertPais('Lesoto', 'África', 'Mohapi');
+call InsertPais('Madagascar', 'África', 'Rakotomalala');
+call InsertPais('Suazilândia', 'África', 'Dlamini');
 
 
 
 select * from tbNome;
 select * from tbSobrenome;
+select * from tbPais;
