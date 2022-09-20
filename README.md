@@ -14,4 +14,5 @@ Projeto Programação Aplicativos Mobile - Aline F.
 
 <h4 align="center"> 
 	🚧  React Select 🚀 Em construção...  🚧
-</h4>
+</h4>  
+<p>Banco de dados esta no arquivo .txt dentro da pasta Scripts</p>
