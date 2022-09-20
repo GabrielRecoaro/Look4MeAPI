@@ -1,5 +1,6 @@
 #API Look4Me
-Projeto Programação Aplicativos Mobile - Aline F. 
+Projeto Programação Aplicativos Mobile - Aline F.  
+<p>Banco de dados esta no arquivo .txt dentro da pasta Scripts</p>
 
 
 
@@ -15,4 +16,4 @@ Projeto Programação Aplicativos Mobile - Aline F.
 <h4 align="center"> 
 	🚧  React Select 🚀 Em construção...  🚧
 </h4>  
-<p>Banco de dados esta no arquivo .txt dentro da pasta Scripts</p>
+
